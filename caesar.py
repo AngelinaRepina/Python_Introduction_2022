@@ -1,4 +1,4 @@
- move = 3
+move = 3
 message = str(input("Enter your message to encrypt (in lowercase): "))
 result = ' '
 alphabets_in_lowercase=[]
@@ -8,11 +8,11 @@ alphabet = (alphabets_in_lowercase)
 alph = ''.join(alphabet)
 t = len(alph)
 print (alph)
-def encrypt_caesar (x = message, y = move):
+def encrypt_caesar (plaintext = message, shift = move):
     result = ' '
-    for i in x: 
+    for i in plaintext: 
         place = alph.find(i)
-        new_place = place + y
+        new_place = place + shift
         if new_place >= t:
             new_place = new_place - t    
         if i in alph:
@@ -24,11 +24,11 @@ def encrypt_caesar (x = message, y = move):
 print (encrypt_caesar())
 
 message_to_decrypt = str(input("Enter your message to decrypt (in lowercase):"))
-def decrypt_caesar (a = message_to_decrypt, b = move):
+def decrypt_caesar (ciphertext = message_to_decrypt, shift = move):
     result_decr = ' '
-    for i in a:
+    for i in ciphnertext:
         place = alph.find(i)
-        new_place = place - b
+        new_place = place - shift
         if new_place < 0:
             new_place = new_place + t
         if i in alph:
