@@ -1,4 +1,4 @@
- alphabet_in_lowercase = []
+alphabet_in_lowercase = []
 for i in range(97,123):
     alphabet_in_lowercase.append(chr(i))
 alphabet = (alphabet_in_lowercase)
@@ -20,6 +20,7 @@ def encrypt_viegener (a = word_to_encrypt, b = keyword):
         else:
             result += a[i]
     print (result)
+    return result
 print (encrypt_viegener())
 
 word_to_decrypt = str(input("Enter your kode to decrypt: "))
@@ -38,4 +39,5 @@ def decrypt_viegener (r = word_to_decrypt, e = keywordd):
         else:
             result_de += r[i]
     print (result_de)
+    return result_de
 print (decrypt_viegener())
