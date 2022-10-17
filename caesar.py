@@ -1,4 +1,4 @@
-move = 3
+ move = 3
 message = str(input("Enter your message to encrypt (in lowercase): "))
 result = ' '
 alphabets_in_lowercase=[]
@@ -20,6 +20,7 @@ def encrypt_caesar (x = message, y = move):
         else:
             result += i
     print (result)
+    return result
 print (encrypt_caesar())
 
 message_to_decrypt = str(input("Enter your message to decrypt (in lowercase):"))
@@ -35,4 +36,5 @@ def decrypt_caesar (a = message_to_decrypt, b = move):
         else:
             result_decr += i
     print (result_decr)
+    return result_decr
 print (decrypt_caesar())
