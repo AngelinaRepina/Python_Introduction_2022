@@ -26,7 +26,7 @@ print (encrypt_caesar())
 message_to_decrypt = str(input("Enter your message to decrypt (in lowercase):"))
 def decrypt_caesar (ciphertext = message_to_decrypt, shift = move):
     plaintext = ' '
-    for i in ciphnertext:
+    for i in ciphertext:
         place = alph.find(i)
         new_place = place - shift
         if new_place < 0:
