@@ -1,6 +1,6 @@
 move = 3
 message = str(input("Enter your message to encrypt (in lowercase): "))
-result = ' '
+result = ''
 alphabets_in_lowercase=[]
 for i in range(97,123):
     alphabets_in_lowercase.append(chr(i))
@@ -25,7 +25,7 @@ print (encrypt_caesar())
 
 message_to_decrypt = str(input("Enter your message to decrypt (in lowercase):"))
 def decrypt_caesar (ciphertext = message_to_decrypt, shift = move):
-    plaintext = ' '
+    plaintext = ''
     for i in ciphertext:
         place = alph.find(i)
         new_place = place - shift
