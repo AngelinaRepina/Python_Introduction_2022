@@ -9,32 +9,32 @@ alph = ''.join(alphabet)
 t = len(alph)
 print (alph)
 def encrypt_caesar (plaintext = message, shift = move):
-    result = ' '
+    ciphertext = ' '
     for i in plaintext: 
         place = alph.find(i)
         new_place = place + shift
         if new_place >= t:
             new_place = new_place - t    
         if i in alph:
-            result += alph[new_place]
+            ciphertext += alph[new_place]
         else:
-            result += i
-    print (result)
-    return result
+            ciphertext += i
+    print (ciphertext)
+    return ciphertext
 print (encrypt_caesar())
 
 message_to_decrypt = str(input("Enter your message to decrypt (in lowercase):"))
 def decrypt_caesar (ciphertext = message_to_decrypt, shift = move):
-    result_decr = ' '
+    plaintext = ' '
     for i in ciphnertext:
         place = alph.find(i)
         new_place = place - shift
         if new_place < 0:
             new_place = new_place + t
         if i in alph:
-            result_decr += alph[new_place]
+            plaintext += alph[new_place]
         else:
-            result_decr += i
-    print (result_decr)
-    return result_decr
+            plaintext += i
+    print (plaintext)
+    return plaintext
 print (decrypt_caesar())
