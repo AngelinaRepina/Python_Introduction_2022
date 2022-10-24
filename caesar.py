@@ -1,5 +1,5 @@
 def encrypt_caesar (plaintext: str, shift: int = 3) -> str:
-    ciphertext = " "
+    ciphertext = ""
     alphabets_in_lowercase = []
     alphabets_in_uppercase = []
     for i in range(65, 91):
@@ -38,7 +38,7 @@ def encrypt_caesar (plaintext: str, shift: int = 3) -> str:
 print (encrypt_caesar("Hello*"))
                         
 def decrypt_caesar (ciphertext: str, shift: int = 3) -> str:
-    plaintext = " "
+    plaintext = ""
     alphabets_in_lowercase = []
     alphabets_in_uppercase = []
     for i in range(65, 91):
