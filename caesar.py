@@ -1,4 +1,4 @@
- def encrypt_caesar (plaintext: str, shift: int = 3) -> str:
+def encrypt_caesar (plaintext: str, shift: int = 3) -> str:
     ciphertext = " "
     alphabets_in_lowercase = []
     alphabets_in_uppercase = []
