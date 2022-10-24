@@ -1,43 +1,83 @@
-alphabet_in_lowercase = []
-for i in range(97,123):
-    alphabet_in_lowercase.append(chr(i))
-alphabet = (alphabet_in_lowercase)
-alph = ''.join(alphabet)
-h = len(alph)
-word_to_encrypt = str(input("Enter your word to encrypt: "))
-keyword = str(input("Enter your keyword: "))
-def encrypt_viegener (a = word_to_encrypt, b = keyword):
-    t = len(a)
-    c = len(b)
-    result = ' '
-    if t > c:
-        b = b + b 
-        c = len(b)
-    for i in range(0, t):
-        new_place = (alph.find(a[i]) + alph.find(b[i])) % 26
-        if a[i] in alph:
-            result += alph[new_place]
+def encrypt_vigenere (plaintext: str, keyword: str) -> str:
+    ciphertext = ""
+    alphabets_in_lowercase = []
+    alphabets_in_uppercase = []
+    for i in range(65, 91):
+        alphabets_in_uppercase.append(chr(i))
+    alph_in_uppercase = (alphabets_in_uppercase)
+    alph_in_upper = ''.join(alph_in_uppercase)
+    t = len(alph_in_upper)
+    for i in range(97, 123):
+        alphabets_in_lowercase.append(chr(i))
+    alph_in_lowercase = (alphabets_in_lowercase)
+    alph_in_lower = ''.join(alph_in_lowercase)
+    k = len(alph_in_lower)
+    place: int = 0
+    new_place: int = 0
+    g = len(plaintext)
+    p = len(keyword)
+    if g > p:
+        keyword = keyword + keyword
+        p = len(keyword)
+    for i in range(0, g):
+        place = (alph_in_upper.find(plaintext[i]))
+        if place in range(0, t):
+            new_place = (place + alph_in_upper.find(keyword[i])) % 26
+            if plaintext[i] in alph_in_upper:
+                ciphertext += alph_in_upper[new_place]
+        
         else:
-            result += a[i]
-    print (result)
-    return result
-print (encrypt_viegener())
+            place = (alph_in_lower.find(plaintext[i]))
+            if place in range(0, k):
+                new_place = (place + alph_in_lower.find(keyword[i])) % 26
+                if plaintext[i] in alph_in_lower:
+                    ciphertext += alph_in_lower[new_place]
+            else:
+                ciphertext += plaintext[i]
+    print (ciphertext)
+    return ciphertext
+print (encrypt_vigenere("Hello*", "key"))
 
-word_to_decrypt = str(input("Enter your kode to decrypt: "))
-keywordd = str(input("Enter keyword: "))
-def decrypt_viegener (r = word_to_decrypt, e = keywordd):
-    y = len(r)
-    p = len(e)
-    result_de = ' '
-    if y > p:
-        e = e + e 
-        p = len(e)
-    for i in range(0, y):
-        new_place = (alph.find(r[i]) - alph.find(e[i])) % 26
-        if r[i] in alph:
-            result_de += alph[new_place]
+def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
+    plaintext = ""
+    alphabets_in_lowercase = []
+    alphabets_in_uppercase = []
+    for i in range(65, 93):
+        alphabets_in_uppercase.append(chr(i))
+    alph_in_uppercase = (alphabets_in_uppercase)
+    alph_in_upper = ''.join(alph_in_uppercase)
+    for i in range(97, 123):
+        alphabets_in_lowercase.append(chr(i))
+    alph_in_lowercase = (alphabets_in_lowercase)
+    alph_in_lower = ''.join(alph_in_lowercase)
+    t = len(alph_in_upper)
+    k = len(alph_in_lower)
+    place: int = 0
+    new_place: int = 0
+    g = len(ciphertext)
+    p = len(keyword)
+    if g > p:
+        keyword = keyword + keyword
+        p = len(keyword)
+    for i in range(0, g):
+        place = (alph_in_upper.find(ciphertext[i]))
+        if place in range(0, t):
+            new_place = (place - alph_in_upper.find(keyword[i])) % 26
+            if new_place > t:
+                new_place= new_place - t
+            if ciphertext[i] in alph_in_upper:
+                plaintext += alph_in_upper[new_place]
+                
         else:
-            result_de += r[i]
-    print (result_de)
-    return result_de
-print (decrypt_viegener())
+            place = (alph_in_lower.find(ciphertext[i]))
+            if place in range(0, k):
+                new_place = (place - alph_in_lower.find(keyword[i]))
+                if new_place > k:
+                    new_place = new_place - k
+                if ciphertext[i] in alph_in_lower:
+                    plaintext += alph_in_lower[new_place]
+            else:
+                plaintext += ciphertext[i]
+    print (plaintext)
+    return plaintext
+print (decrypt_vigenere("Gijvs*", "key"))
