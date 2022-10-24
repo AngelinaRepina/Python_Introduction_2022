@@ -24,7 +24,6 @@ def encrypt_caesar (plaintext: str, shift: int = 3) -> str:
                 new_place = new_place - t
             if i in alph_in_upper:
                 ciphertext += alph_in_upper[new_place]
-    
         else: 
             place = (alph_in_lower.find(i))
             if place in range(0, k):
@@ -33,6 +32,8 @@ def encrypt_caesar (plaintext: str, shift: int = 3) -> str:
                     new_place = new_place - k
                 if i in alph_in_lower:
                     ciphertext += alph_in_lower[new_place]
+            else:
+                ciphertext += i
     print (ciphertext)
     return ciphertext
 print (encrypt_caesar("Hello*"))
@@ -63,7 +64,6 @@ def decrypt_caesar (ciphertext: str, shift: int = 3) -> str:
                 new_place = new_place + t
             if i in alph_in_upper:
                 plaintext += alph_in_upper[new_place]
-                
         else:
             place = (alph_in_lower.find(i))
             if place in range(0, k):
@@ -72,6 +72,8 @@ def decrypt_caesar (ciphertext: str, shift: int = 3) -> str:
                     new_place = new_place + k
                 if i in alph_in_lower:
                     plaintext += alph_in_lower[new_place]
+            else:
+                plaintext += i
     print (plaintext)
     return plaintext
 print (decrypt_caesar("Khoor*"))
