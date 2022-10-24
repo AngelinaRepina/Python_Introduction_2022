@@ -21,19 +21,15 @@ def encrypt_vigenere (plaintext: str, keyword: str) -> str:
         p = len(keyword)
     for i in range(0, g):
         place = (alph_in_upper.find(plaintext[i]))
-        if place in range(0, t):
+        if place in range(0, (t - 1)):
             new_place = (place + alph_in_upper.find(keyword[i])) % 26
-            if new_place > t:
-                new_place = new_place - t
             if plaintext[i] in alph_in_upper:
                 ciphertext += alph_in_upper[new_place]
         
         else:
             place = (alph_in_lower.find(plaintext[i]))
-            if place in range(0, k):
+            if place in range(0, (k - 1)):
                 new_place = (place + alph_in_lower.find(keyword[i])) % 26
-                if new_place > k:
-                    new_place = new_place - k
                 if plaintext[i] in alph_in_lower:
                     ciphertext += alph_in_lower[new_place]
             else:
@@ -65,19 +61,15 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
         p = len(keyword)
     for i in range(0, g):
         place = (alph_in_upper.find(ciphertext[i]))
-        if place in range(0, t):
+        if place in range(0, (t - 1)):
             new_place = (place - alph_in_upper.find(keyword[i])) % 26
-            if new_place < 0:
-                new_place = new_place + t
             if ciphertext[i] in alph_in_upper:
                 plaintext += alph_in_upper[new_place]
                 
         else:
             place = (alph_in_lower.find(ciphertext[i]))
-            if place in range(0, k):
+            if place in range(0, (k - 1)):
                 new_place = (place - alph_in_lower.find(keyword[i]))
-                if new_place < 0:
-                    new_place = new_place + k
                 if ciphertext[i] in alph_in_lower:
                     plaintext += alph_in_lower[new_place]
             else:
